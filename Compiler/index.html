@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡易計算機</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <script src="https://unpkg.com/akar-icons-fonts"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div id="data">
+    <p id="answer"></p>
+    <p id="calculator"></p>
+</div>
+<main class="container">
+    <h1 id="main">&nbsp;</h1>
+    <div class="grid">
+        <button class="contrast outline compilerBtn">AC</button>
+        <button class="contrast outline compilerBtn">±</button>
+        <button class="contrast outline compilerBtn">%</button>
+        <button class="contrast outline compilerBtn">÷</button>
+    </div>
+    <div class="grid">
+        <button class="contrast outline compilerBtn">7</button>
+        <button class="contrast outline compilerBtn">8</button>
+        <button class="contrast outline compilerBtn">9</button>
+        <button class="contrast outline compilerBtn">x</button>
+    </div>
+    <div class="grid">
+        <button class="contrast outline compilerBtn">4</button>
+        <button class="contrast outline compilerBtn">5</button>
+        <button class="contrast outline compilerBtn">6</button>
+        <button class="contrast outline compilerBtn">-</button>
+    </div>
+    <div class="grid">
+        <button class="contrast outline compilerBtn">1</button>
+        <button class="contrast outline compilerBtn">2</button>
+        <button class="contrast outline compilerBtn">3</button>
+        <button class="contrast outline compilerBtn">+</button>
+    </div>
+    <div class="grid">
+        <button class="contrast outline" id="darkModeBtn"><i class="ai-sun-fill"></i></button>
+        <button class="contrast outline compilerBtn">0</button>
+        <button class="contrast outline compilerBtn">.</button>
+        <button class="contrast outline compilerBtn">=</button>
+    </div>
+</main>
+<script src="./index.js"></script>
+</body>
+</html>
