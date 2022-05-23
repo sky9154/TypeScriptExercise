@@ -4,9 +4,11 @@ type htmlElement = HTMLElement | null;
  * 闇黑模式
  */
 let darkMode = () => {
-    const darkModeBtn: htmlElement = document.getElementById('darkModeBtn');
-    const html: htmlElement = document.querySelector('html');
-    if (html !== null && darkModeBtn !== null) {
+    const [darkModeBtn, html] = [
+        document.getElementById('darkModeBtn') as htmlElement,
+        document.querySelector('html') as htmlElement,
+    ];
+    if (html && darkModeBtn) {
         const dataTheme: unknown = html.getAttribute('data-theme');
         localStorage.setItem("theme", dataTheme as string);
         if (localStorage.theme === 'dark') {
@@ -46,10 +48,12 @@ let contValue = (a: number, b: number, calculator: string) => {
  * @param clickValue 點選值
  */
 let checkValue = (clickValue: string) => {
-    const value: htmlElement = document.querySelector('#main');
-    const answer: htmlElement = document.querySelector('#answer');
-    const calculator: htmlElement = document.querySelector('#calculator');
-    if (value !== null && answer !== null && calculator !== null) {
+    const [value, answer, calculator] = [
+        document.querySelector('#main') as htmlElement,
+        document.querySelector('#answer') as htmlElement,
+        document.querySelector('#calculator') as htmlElement
+    ];
+    if (value && answer && calculator) {
         value.innerText = value.innerText.trim();
         switch (clickValue) {
             case 'AC':
@@ -79,13 +83,11 @@ let checkValue = (clickValue: string) => {
                 if (value.innerText !== '') {
                     answer.innerText = value.innerText;
                 }
-                calculator.innerText = clickValue;
-                value.innerHTML = '&nbsp;';
+                [calculator.innerText, value.innerHTML] = [clickValue, '&nbsp;'];
                 break;
             case '=':
                 value.innerText = contValue(Number(answer.innerText), Number(value.innerText), calculator.innerText);
-                answer.innerText = '';
-                calculator.innerText = '';
+                answer.innerText, calculator.innerText = '';
                 break;
             default:
                 if (value.innerText === '0') {
@@ -99,9 +101,7 @@ let checkValue = (clickValue: string) => {
 }
 
 const darkModeBtn: htmlElement = document.getElementById('darkModeBtn');
-if (darkModeBtn !== null) {
-    darkModeBtn.addEventListener('click', darkMode);
-}
+darkModeBtn && darkModeBtn.addEventListener('click', darkMode);
 
 const compilerBtn: NodeList = document.querySelectorAll('.compilerBtn');
 for (let i: number = 0; i < compilerBtn.length; i ++) {
